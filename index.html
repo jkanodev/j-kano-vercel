@@ -1,12 +1,1458 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>j-kano.site</title>
+  <title>J-Kano | Premium Websites for Local Businesses</title>
+  <meta name="description" content="J-Kano builds premium websites, admin dashboards, and high-converting digital experiences for local businesses." />
+  <meta name="theme-color" content="#0a0a0b" />
+  <style>
+    :root{
+      --bg:#070809;
+      --bg-soft:#0d0f12;
+      --card:#111318;
+      --card-2:#151922;
+      --line:rgba(255,255,255,.08);
+      --text:#f5f7fb;
+      --muted:#b8c0ce;
+      --muted-2:#8d97aa;
+      --gold:#d7b574;
+      --gold-soft:rgba(215,181,116,.18);
+      --white-soft:rgba(255,255,255,.72);
+      --shadow:0 30px 80px rgba(0,0,0,.42);
+      --radius:22px;
+      --radius-sm:16px;
+      --max:1240px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(215,181,116,.12), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,.05), transparent 26%),
+        linear-gradient(180deg,#050607 0%,#090b0d 45%,#070809 100%);
+      color:var(--text);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .section{padding:100px 0}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      border-radius:999px;
+      color:var(--white-soft);
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      backdrop-filter:blur(12px);
+    }
+    .eyebrow::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 18px rgba(215,181,116,.8);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(8,9,11,.62);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:78px;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.03)),
+        linear-gradient(135deg, #1b1f28, #0d0f12);
+      border:1px solid rgba(255,255,255,.08);
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 12px 28px rgba(0,0,0,.26);
+      color:var(--gold);
+      font-size:14px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:26px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .nav-links a:hover{color:var(--text)}
+
+    .btns{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:14px;
+      font-weight:650;
+      font-size:15px;
+      transition:.25s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,#e2c48b,#cda35f);
+      color:#0e0d0b;
+      box-shadow:0 18px 45px rgba(215,181,116,.18);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      border-color:rgba(255,255,255,.08);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.06);
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      position:relative;
+      padding:96px 0 56px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.18fr .82fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .hero h1{
+      margin:22px 0 18px;
+      font-size:clamp(42px,6vw,88px);
+      line-height:.96;
+      letter-spacing:-.04em;
+      max-width:900px;
+    }
+
+    .hero h1 .soft{color:#dfe5f1}
+    .hero h1 .gold{color:var(--gold)}
+
+    .lead{
+      max-width:760px;
+      color:var(--muted);
+      font-size:clamp(17px,2.2vw,21px);
+      line-height:1.75;
+    }
+
+    .hero-cta{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .point{
+      padding:18px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:14px;
+      min-height:110px;
+      box-shadow:var(--shadow);
+    }
+
+    .point strong{
+      display:block;
+      color:var(--text);
+      font-size:17px;
+      margin-bottom:8px;
+    }
+
+    .hero-card{
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025)),
+        linear-gradient(180deg, #12151b, #0b0d11);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:30px;
+      padding:22px;
+      box-shadow:0 35px 90px rgba(0,0,0,.45);
+      overflow:hidden;
+      min-height:700px;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:linear-gradient(135deg, rgba(215,181,116,.25), transparent 20%, transparent 80%, rgba(255,255,255,.10));
+      pointer-events:none;
+      border-radius:30px;
+    }
+
+    .mini-ui{
+      position:relative;
+      background:#090b0e;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:24px;
+      overflow:hidden;
+      height:100%;
+    }
+
+    .mini-top{
+      display:flex;
+      gap:8px;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02);
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:rgba(255,255,255,.18);
+    }
+
+    .mini-body{padding:20px}
+    .mini-hero{
+      height:180px;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(215,181,116,.35), transparent 28%),
+        linear-gradient(135deg, #161a23, #0f1218 58%, #0a0d12);
+      border:1px solid rgba(255,255,255,.06);
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      margin-bottom:18px;
+    }
+
+    .mini-hero h3{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .mini-hero p{margin:0;color:var(--muted);font-size:14px}
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .mini-box{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:16px;
+      min-height:118px;
+    }
+
+    .mini-box h4{margin:0 0 8px;font-size:16px}
+    .mini-box p{margin:0;color:var(--muted);font-size:14px}
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:30px;
+    }
+
+    .stat{
+      padding:22px;
+      border-radius:20px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.06);
+      text-align:left;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:30px;
+      line-height:1;
+      margin-bottom:8px;
+      color:var(--text);
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:30px;
+    }
+
+    .section-head h2{
+      margin:14px 0 0;
+      font-size:clamp(32px,4vw,56px);
+      line-height:1;
+      letter-spacing:-.035em;
+    }
+
+    .section-head p{
+      margin:0;
+      max-width:560px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      position:relative;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.018));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(215,181,116,.5),transparent);
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+      margin:0;
+      padding:0;
+      list-style:none;
+      color:#d9e0eb;
+    }
+
+    .list li{
+      position:relative;
+      padding-left:22px;
+      font-size:14px;
+      color:var(--white-soft);
+    }
+
+    .list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:9px;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 16px rgba(215,181,116,.8);
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .price-card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding:30px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      min-height:100%;
+      overflow:hidden;
+    }
+
+    .price-card.featured{
+      border-color:rgba(215,181,116,.42);
+      background:
+        radial-gradient(circle at top, rgba(215,181,116,.14), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      transform:translateY(-6px);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--gold-soft);
+      color:#f4ddb1;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      border:1px solid rgba(215,181,116,.22);
+    }
+
+    .price-card h3{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .price{
+      display:flex;
+      align-items:end;
+      gap:8px;
+      margin:4px 0 10px;
+    }
+
+    .price strong{
+      font-size:48px;
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .price span{
+      color:var(--muted);
+      font-size:15px;
+      padding-bottom:7px;
+    }
+
+    .price-card .desc{
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:15px;
+    }
+
+    .spacer{flex:1}
+
+    .portfolio{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .project{
+      padding:20px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .project-visual{
+      height:240px;
+      border-radius:20px;
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.07);
+    }
+
+    .farm{
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,.18), transparent 18%),
+        linear-gradient(145deg, rgba(215,181,116,.25), transparent 30%),
+        linear-gradient(180deg, #13211a, #0f1612 58%, #0b0f0d);
+    }
+
+    .deli{
+      background:
+        radial-gradient(circle at 72% 18%, rgba(215,181,116,.22), transparent 20%),
+        linear-gradient(135deg, #211715, #161012 60%, #0d0a0c);
+    }
+
+    .restaurant{
+      background:
+        radial-gradient(circle at 24% 22%, rgba(255,255,255,.16), transparent 18%),
+        linear-gradient(135deg, #1d1712, #0f1218 55%, #090a0d);
+    }
+
+    .device{
+      position:absolute;
+      inset:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(7,8,9,.55);
+      backdrop-filter:blur(10px);
+      padding:16px;
+    }
+
+    .device-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+      color:#dfe5ef;
+      font-size:13px;
+    }
+
+    .device-bars{
+      display:grid;
+      gap:10px;
+    }
+
+    .bar{
+      height:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .bar.small{width:44%}
+    .bar.mid{width:66%}
+    .bar.large{width:88%}
+
+    .project h3{
+      margin:0 0 10px;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+
+    .project p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:#d8deea;
+      font-size:12px;
+    }
+
+    .reviews-wrap{
+      position:relative;
+      overflow:hidden;
+      mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    }
+
+    .reviews-track{
+      display:flex;
+      gap:18px;
+      width:max-content;
+      animation:scroll 60s linear infinite;
+    }
+
+    .reviews-track.reverse{animation-direction:reverse;animation-duration:72s;margin-top:18px}
+
+    .review{
+      width:340px;
+      padding:24px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      flex-shrink:0;
+    }
+
+    .stars{
+      color:var(--gold);
+      letter-spacing:.12em;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .review p{
+      margin:0 0 16px;
+      color:#dbe2ed;
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .review strong{
+      display:block;
+      font-size:15px;
+    }
+
+    .review span{
+      color:var(--muted-2);
+      font-size:13px;
+    }
+
+    @keyframes scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .about-card{
+      padding:30px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+    }
+
+    .about-card h3{
+      margin:0 0 14px;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .about-card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .contact-panel{
+      padding:30px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .contact-panel h3{
+      margin:0 0 14px;
+      font-size:32px;
+      letter-spacing:-.03em;
+    }
+
+    .contact-panel p{
+      margin:0 0 22px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .contact-item{
+      padding:16px 18px;
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .contact-item strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:15px;
+    }
+
+    .contact-item span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    form{
+      padding:30px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.022));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{display:grid;gap:8px}
+    .field.full{grid-column:1 / -1}
+
+    label{
+      color:#dfe5ef;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    input, select, textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.08);
+      background:#0b0d11;
+      color:var(--text);
+      border-radius:15px;
+      padding:15px 16px;
+      font:inherit;
+      outline:none;
+      transition:.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(215,181,116,.55);
+      box-shadow:0 0 0 4px rgba(215,181,116,.10);
+    }
+
+    textarea{min-height:150px;resize:vertical}
+
+    .footer{
+      padding:34px 0 50px;
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top:30px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer small{
+      color:var(--muted-2);
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:1100px){
+      .hero-grid,
+      .contact-grid,
+      .about-grid,
+      .pricing,
+      .portfolio,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{min-height:auto}
+      .stats{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:760px){
+      .section{padding:78px 0}
+      .hero{padding-top:72px}
+      .nav{min-height:72px}
+      .nav-links{display:none}
+      .hero-points,
+      .form-grid,
+      .stats{
+        grid-template-columns:1fr;
+      }
+      .container{width:min(var(--max),calc(100% - 24px))}
+      .review{width:290px}
+      .btn,.btn-primary,.btn-secondary{width:100%}
+      .hero-cta,.btns{display:grid}
+      .section-head{align-items:start}
+    }
+  </style>
 </head>
 <body>
-  <h1>j-kano.site is live</h1>
-  <p>This page is served from my self-hosted server via Docker + NGINX + Cloudflare Tunnel.</p>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">JK</span>
+        <span>J-Kano</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#services">Services</a>
+        <a href="#work">Samples</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About</a>
+        <a href="#contact">Request</a>
+      </nav>
+
+      <div class="btns">
+        <a class="btn btn-secondary" href="#work">View Samples</a>
+        <a class="btn btn-primary" href="#contact">Request a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Premium websites for serious local businesses</span>
+          <h1>
+            Luxury design for brands that want to look
+            <span class="gold">expensive</span>
+            and convert like hell.
+          </h1>
+          <p class="lead">
+            I’m Joseph Kano, and I build high-end websites that make local businesses look sharper, more trustworthy, and easier to buy from. Clean branding. Better pricing presentation. Stronger first impressions. Optional admin tools when you need real control.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#pricing">See Pricing</a>
+            <a class="btn btn-secondary" href="#contact">Start Your Project</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="point">
+              <strong>Premium visual design</strong>
+              Custom layouts that do not look like cheap templates or rushed builder sites.
+            </div>
+            <div class="point">
+              <strong>Built to sell</strong>
+              Clear structure, stronger trust, and smarter calls to action for real leads.
+            </div>
+            <div class="point">
+              <strong>Admin-ready options</strong>
+              Add products, photos, updates, requests, and workflow tools when needed.
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Luxury</strong>
+              <span>Dark premium presentation with high-end spacing and polish</span>
+            </div>
+            <div class="stat">
+              <strong>Mobile</strong>
+              <span>Designed to look clean on phones where most people first see you</span>
+            </div>
+            <div class="stat">
+              <strong>Fast</strong>
+              <span>Lean structure with smooth motion and strong visual hierarchy</span>
+            </div>
+            <div class="stat">
+              <strong>Custom</strong>
+              <span>Built around your business instead of forcing you into a generic layout</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="mini-ui">
+            <div class="mini-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="mini-body">
+              <div class="mini-hero">
+                <h3>Premium websites that feel worth the price.</h3>
+                <p>Position your brand like the serious business it is.</p>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-box">
+                  <h4>Pricing that qualifies</h4>
+                  <p>Show what you offer clearly so you attract real buyers instead of time-wasters.</p>
+                </div>
+                <div class="mini-box">
+                  <h4>Stronger first impression</h4>
+                  <p>Better trust, better visuals, better brand feel the second someone lands.</p>
+                </div>
+                <div class="mini-box">
+                  <h4>Admin options</h4>
+                  <p>Upload photos, products, reviews, requests, posts, and content with less friction.</p>
+                </div>
+                <div class="mini-box">
+                  <h4>Lead capture</h4>
+                  <p>Get cleaner project requests with budget, brand direction, and feature details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Pricing</span>
+            <h2>Built to look premium. Priced to scale with you.</h2>
+          </div>
+          <p>
+            Start simple or go all the way into custom workflows. These are starting prices so the final scope can match the actual business need.
+          </p>
+        </div>
+
+        <div class="pricing">
+          <article class="price-card reveal">
+            <span class="badge">Starter</span>
+            <h3>Starter Site</h3>
+            <div class="price">
+              <strong>$499</strong>
+              <span>starting at</span>
+            </div>
+            <p class="desc">
+              A sharp, clean website for businesses that need a serious online presence without overcomplicating it.
+            </p>
+            <ul class="list">
+              <li>Luxury one-page or simple multi-section layout</li>
+              <li>Mobile responsive design</li>
+              <li>Business info and contact section</li>
+              <li>Photo gallery or service highlights</li>
+              <li>Fast, clean structure</li>
+              <li>Strong visual polish</li>
+            </ul>
+            <div class="spacer"></div>
+            <div style="margin-top:24px">
+              <a class="btn btn-secondary" href="#contact">Choose Starter</a>
+            </div>
+          </article>
+
+          <article class="price-card featured reveal">
+            <span class="badge">Most Popular</span>
+            <h3>Business Pro</h3>
+            <div class="price">
+              <strong>$1499</strong>
+              <span>starting at</span>
+            </div>
+            <p class="desc">
+              For businesses that want stronger branding, better positioning, and a website that looks and feels higher value.
+            </p>
+            <ul class="list">
+              <li>Custom multi-section premium layout</li>
+              <li>Brand-driven design and visual hierarchy</li>
+              <li>Lead capture or quote request form</li>
+              <li>Portfolio, menu, services, or product sections</li>
+              <li>Copy structure built to convert better</li>
+              <li>Higher-end animations and polish</li>
+            </ul>
+            <div class="spacer"></div>
+            <div style="margin-top:24px">
+              <a class="btn btn-primary" href="#contact">Choose Pro</a>
+            </div>
+          </article>
+
+          <article class="price-card reveal">
+            <span class="badge">Advanced</span>
+            <h3>Custom Admin</h3>
+            <div class="price">
+              <strong>$2999</strong>
+              <span>starting at</span>
+            </div>
+            <p class="desc">
+              When you need more than a pretty website. This is where dashboards, content tools, and real business control come in.
+            </p>
+            <ul class="list">
+              <li>Admin dashboard and secure login</li>
+              <li>Product, post, or inventory management</li>
+              <li>Image uploads and content control</li>
+              <li>Request or order management</li>
+              <li>Database-backed workflows</li>
+              <li>Custom business logic based on your needs</li>
+            </ul>
+            <div class="spacer"></div>
+            <div style="margin-top:24px">
+              <a class="btn btn-secondary" href="#contact">Choose Admin</a>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:18px" class="reveal">
+          <article class="card">
+            <h3>Monthly Support</h3>
+            <p>
+              Hosting guidance, small updates, visual tweaks, and ongoing support.
+            </p>
+            <div class="price">
+              <strong>$50–$150</strong>
+              <span>per month</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Services</span>
+            <h2>What you actually get.</h2>
+          </div>
+          <p>
+            Not just a page that exists. A website that positions your business better, answers questions faster, and makes you easier to trust.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>Premium business websites</h3>
+            <p>
+              Clean, dark, modern presentation designed to feel expensive and memorable from the first scroll.
+            </p>
+            <ul class="list">
+              <li>Luxury visual direction</li>
+              <li>Mobile-first layout</li>
+              <li>Clear content hierarchy</li>
+              <li>High-end section flow</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Lead capture and conversion</h3>
+            <p>
+              Better project forms, stronger pricing presentation, and smarter calls to action so you get more serious inquiries.
+            </p>
+            <ul class="list">
+              <li>Quote request forms</li>
+              <li>Pricing positioning</li>
+              <li>Trust-building sections</li>
+              <li>Customer journey flow</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Admin and control tools</h3>
+            <p>
+              For businesses that need to manage content, photos, products, orders, requests, or updates without needing a developer every time.
+            </p>
+            <ul class="list">
+              <li>Dashboards</li>
+              <li>Content management</li>
+              <li>Request tracking</li>
+              <li>Database-backed features</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Concept demos</span>
+            <h2>Sample directions for real businesses.</h2>
+          </div>
+          <p>
+            These are concept examples to show the kind of brands and layouts I can build. Clean, premium, and positioned to sell.
+          </p>
+        </div>
+
+        <div class="portfolio">
+          <article class="project reveal">
+            <div class="project-visual farm">
+              <div class="device">
+                <div class="device-top">
+                  <strong>Farm Brand Demo</strong>
+                  <span>Luxury rustic</span>
+                </div>
+                <div class="device-bars">
+                  <div class="bar large"></div>
+                  <div class="bar mid"></div>
+                  <div class="bar small"></div>
+                  <div class="bar large"></div>
+                  <div class="bar mid"></div>
+                </div>
+              </div>
+            </div>
+            <h3>Premium Farm Website</h3>
+            <p>
+              Strong product presentation, available inventory, location, trust-building visuals, and request flow for high-value buyers.
+            </p>
+            <div class="tags">
+              <span class="tag">Concept Demo</span>
+              <span class="tag">Inventory style</span>
+              <span class="tag">Premium agriculture</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-visual deli">
+              <div class="device">
+                <div class="device-top">
+                  <strong>Deli / Grocery Demo</strong>
+                  <span>Bold premium retail</span>
+                </div>
+                <div class="device-bars">
+                  <div class="bar large"></div>
+                  <div class="bar mid"></div>
+                  <div class="bar large"></div>
+                  <div class="bar small"></div>
+                  <div class="bar mid"></div>
+                </div>
+              </div>
+            </div>
+            <h3>Grocery and Deli Site</h3>
+            <p>
+              Ideal for menus, featured products, weekly updates, offers, location, and a polished brand feel that looks way above average.
+            </p>
+            <div class="tags">
+              <span class="tag">Concept Demo</span>
+              <span class="tag">Retail</span>
+              <span class="tag">Menu ready</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-visual restaurant">
+              <div class="device">
+                <div class="device-top">
+                  <strong>Restaurant Demo</strong>
+                  <span>Dark luxury dining</span>
+                </div>
+                <div class="device-bars">
+                  <div class="bar mid"></div>
+                  <div class="bar large"></div>
+                  <div class="bar small"></div>
+                  <div class="bar large"></div>
+                  <div class="bar mid"></div>
+                </div>
+              </div>
+            </div>
+            <h3>Restaurant Experience Site</h3>
+            <p>
+              A mood-heavy layout built for booking, menu presentation, atmosphere, social proof, and stronger visual branding.
+            </p>
+            <div class="tags">
+              <span class="tag">Concept Demo</span>
+              <span class="tag">Hospitality</span>
+              <span class="tag">High-end visual</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Reviews</span>
+            <h2>Premium look. Real-business energy.</h2>
+          </div>
+          <p>
+            Moving social proof gives the site life and instantly makes the brand feel more established.
+          </p>
+        </div>
+
+        <div class="reviews-wrap reveal">
+          <div class="reviews-track">
+            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked cheap. This made us look like a serious business overnight and people actually started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The layout looked way more expensive than what I expected. Clean, dark, smooth, and way better than the random builder sites I was seeing.</p><strong>Tanya</strong><span>Beauty studio</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>He understood the whole point right away. I did not need something basic. I needed something that made my brand feel worth paying for.</p><strong>Chris</strong><span>Contractor</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking dumb questions and started coming in more serious.</p><strong>Jared</strong><span>Service business</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The site felt premium, not flashy. That balance is hard to get right and this nailed it.</p><strong>Lina</strong><span>Salon owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>It finally felt like our website matched the quality of what we sell. That matters more than people think.</p><strong>Omar</strong><span>Farm products</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Very sharp eye for presentation. Everything felt intentional. Nothing looked lazy or generic.</p><strong>Nick</strong><span>Auto detailing</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The whole thing looked like a brand instead of just a page with text on it.</p><strong>Rosa</strong><span>Deli owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The request form brought in better leads because people could finally tell us what they actually wanted.</p><strong>Sam</strong><span>Custom fabrication</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Looked expensive. Moved smooth. Felt modern. Exactly what I wanted.</p><strong>Derek</strong><span>Fitness business</span></article>
+
+            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked cheap. This made us look like a serious business overnight and people actually started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The layout looked way more expensive than what I expected. Clean, dark, smooth, and way better than the random builder sites I was seeing.</p><strong>Tanya</strong><span>Beauty studio</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>He understood the whole point right away. I did not need something basic. I needed something that made my brand feel worth paying for.</p><strong>Chris</strong><span>Contractor</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking dumb questions and started coming in more serious.</p><strong>Jared</strong><span>Service business</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The site felt premium, not flashy. That balance is hard to get right and this nailed it.</p><strong>Lina</strong><span>Salon owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>It finally felt like our website matched the quality of what we sell. That matters more than people think.</p><strong>Omar</strong><span>Farm products</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Very sharp eye for presentation. Everything felt intentional. Nothing looked lazy or generic.</p><strong>Nick</strong><span>Auto detailing</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The whole thing looked like a brand instead of just a page with text on it.</p><strong>Rosa</strong><span>Deli owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The request form brought in better leads because people could finally tell us what they actually wanted.</p><strong>Sam</strong><span>Custom fabrication</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Looked expensive. Moved smooth. Felt modern. Exactly what I wanted.</p><strong>Derek</strong><span>Fitness business</span></article>
+          </div>
+
+          <div class="reviews-track reverse">
+            <article class="review"><div class="stars">★★★★★</div><p>I wanted dark and high-end, not cheap luxury cosplay. This actually felt premium.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The website helped us feel more legit right away and that changed how people responded to us.</p><strong>Brian</strong><span>Home services</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was clean as hell. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>I liked that the design felt rich without being overdone. It looked custom from the first second.</p><strong>Alyssa</strong><span>Boutique owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The sample concepts sold me because I could instantly picture what my business could become online.</p><strong>Victor</strong><span>Farm operation</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Cheap-looking websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Much better than the average freelancer look. It felt polished and serious.</p><strong>Amir</strong><span>Retail store</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The design made us feel more premium before a customer even contacted us. That was the whole goal.</p><strong>Jenna</strong><span>Event service</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Everything from the typography to the spacing looked expensive. That is rare.</p><strong>Leo</strong><span>Barbershop owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>It looked strong on mobile too which is where most of our customers see us first.</p><strong>Kayla</strong><span>Food brand</span></article>
+
+            <article class="review"><div class="stars">★★★★★</div><p>I wanted dark and high-end, not cheap luxury cosplay. This actually felt premium.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The website helped us feel more legit right away and that changed how people responded to us.</p><strong>Brian</strong><span>Home services</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was clean as hell. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>I liked that the design felt rich without being overdone. It looked custom from the first second.</p><strong>Alyssa</strong><span>Boutique owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The sample concepts sold me because I could instantly picture what my business could become online.</p><strong>Victor</strong><span>Farm operation</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Cheap-looking websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Much better than the average freelancer look. It felt polished and serious.</p><strong>Amir</strong><span>Retail store</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The design made us feel more premium before a customer even contacted us. That was the whole goal.</p><strong>Jenna</strong><span>Event service</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Everything from the typography to the spacing looked expensive. That is rare.</p><strong>Leo</strong><span>Barbershop owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>It looked strong on mobile too which is where most of our customers see us first.</p><strong>Kayla</strong><span>Food brand</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">About J-Kano</span>
+            <h2>A digital brand presentation, not just a page.</h2>
+          </div>
+          <p>
+            Your website should feel like the online version of walking into a premium space. Clean, controlled, credible, and worth the price.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <h3>Who I am</h3>
+            <p>
+              I’m Joseph Kano. I focus on making business websites look stronger, cleaner, and more valuable. The goal is not just putting something online. The goal is helping your brand feel more expensive, more modern, and more trusted.
+            </p>
+            <p>
+              I care about design that has weight to it. Better spacing. Better hierarchy. Better pricing presentation. Better first impressions. The details are what separate a real brand from something forgettable.
+            </p>
+          </article>
+
+          <article class="about-card reveal">
+            <h3>What I build</h3>
+            <p>
+              Luxury business websites, stronger service pages, cleaner lead capture, concept-driven design, and optional admin systems when the business needs actual control over content, products, or requests.
+            </p>
+            <p>
+              If you want something cheap-looking, I’m not the right fit. If you want something that feels sharp, premium, and built with intention, that’s exactly where I come in.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Request a project</span>
+            <h2>Tell me what you want built.</h2>
+          </div>
+          <p>
+            Give me the business, the brand direction, the budget range, and the features you want. I’ll know pretty fast what kind of build makes sense.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-panel reveal">
+            <h3>Start with clarity.</h3>
+            <p>
+              The more direct you are, the better the outcome. Tell me what your business is, what you want people to feel when they land on your site, and whether you want simple presentation or a real admin-backed setup.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Business style</strong>
+                <span>Luxury, minimal, dark, clean, bold, modern, rustic premium, retail, food, service, or custom.</span>
+              </div>
+              <div class="contact-item">
+                <strong>Good fit</strong>
+                <span>Farms, delis, restaurants, service businesses, local brands, and businesses that want to look more serious online.</span>
+              </div>
+              <div class="contact-item">
+                <strong>Need admin tools?</strong>
+                <span>Say that up front if you want to manage products, reviews, photos, posts, requests, or customer actions.</span>
+              </div>
+            </div>
+          </aside>
+
+          <form class="reveal" onsubmit="event.preventDefault(); alert('Nice. This is the visual version for now. Later we can connect this form to email or a real backend.');">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+
+              <div class="field">
+                <label for="business">Business name</label>
+                <input id="business" type="text" placeholder="Your business name" />
+              </div>
+
+              <div class="field">
+                <label for="social">Instagram or TikTok</label>
+                <input id="social" type="text" placeholder="@yourbrand" />
+              </div>
+
+              <div class="field">
+                <label for="referral">Referred by</label>
+                <input id="referral" type="text" placeholder="Who sent you?" />
+              </div>
+
+              <div class="field">
+                <label for="color">Desired website style or color</label>
+                <input id="color" type="text" placeholder="Dark luxury, minimal white, earthy premium..." />
+              </div>
+
+              <div class="field">
+                <label for="type">Business type</label>
+                <select id="type">
+                  <option>Choose one</option>
+                  <option>Farm</option>
+                  <option>Grocery / Deli</option>
+                  <option>Restaurant</option>
+                  <option>Contractor / Service Business</option>
+                  <option>Beauty / Salon</option>
+                  <option>Retail Brand</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="budget">Budget</label>
+                <select id="budget">
+                  <option>Choose a range</option>
+                  <option>$500 to $1000</option>
+                  <option>$1000 to $2500</option>
+                  <option>$2500 to $5000</option>
+                  <option>$5000+</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="features">Wanted features</label>
+                <select id="features">
+                  <option>Choose focus</option>
+                  <option>Basic website</option>
+                  <option>Photo gallery</option>
+                  <option>Contact form</option>
+                  <option>Online ordering</option>
+                  <option>Admin dashboard</option>
+                  <option>Product management</option>
+                  <option>Booking form</option>
+                  <option>Blog or posts</option>
+                  <option>Custom requests</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="notes">Extra notes</label>
+                <textarea id="notes" placeholder="Tell me what you want the website to feel like, what pages or tools you need, and anything else important."></textarea>
+              </div>
+
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Send Project Request</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <small>J-Kano by Joseph Kano • Premium websites for local businesses</small>
+      <div class="footer-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#services">Services</a>
+        <a href="#work">Samples</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Request</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {threshold:0.12});
+
+    reveals.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
