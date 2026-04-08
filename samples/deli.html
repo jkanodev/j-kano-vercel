@@ -8,11 +8,10 @@
   <meta name="robots" content="noindex" />
   <style>
     :root{
-      --bg:#070809;
-      --text:#f5f7fb;
-      --muted:#b8c0ce;
-      --gold:#d7b574;
-      --line:rgba(255,255,255,.08);
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --accent:#3b82f6;
+      --line:rgba(255,255,255,.1);
       --card:rgba(255,255,255,.04);
       --max:900px;
     }
@@ -21,13 +20,13 @@
       margin:0;
       font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
-        radial-gradient(circle at 78% 8%, rgba(215,181,116,.14), transparent 26%),
-        linear-gradient(180deg,#080607,#0c0a0b 45%,#070809);
+        radial-gradient(circle at 78% 8%, rgba(59,130,246,.1), transparent 28%),
+        linear-gradient(180deg,#0b1220,#111827 45%,#0c1322);
       color:var(--text);
       line-height:1.6;
       min-height:100vh;
     }
-    a{color:var(--gold);text-decoration:none}
+    a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:28px 0 80px}
     .back{
@@ -89,12 +88,12 @@
       background:rgba(255,255,255,.025);
     }
     .row span{color:var(--muted);font-size:14px}
-    .row em{color:var(--gold);font-style:normal;font-weight:600}
+    .row em{color:#93c5fd;font-style:normal;font-weight:600}
     .banner{
       padding:24px;
       border-radius:20px;
-      background:linear-gradient(135deg,rgba(215,181,116,.14),rgba(255,255,255,.03));
-      border:1px solid rgba(215,181,116,.28);
+      background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(255,255,255,.03));
+      border:1px solid rgba(59,130,246,.28);
       margin-bottom:28px;
     }
     .banner h2{margin:0 0 8px;font-size:20px}

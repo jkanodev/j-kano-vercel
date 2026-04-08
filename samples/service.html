@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sample — Summit Line Services | J-Kano</title>
+  <meta name="description" content="Concept demo: professional service and trades website layout." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{
+      --navy:#0f172a;
+      --navy-deep:#0b1220;
+      --slate:#1e293b;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --accent:#3b82f6;
+      --line:rgba(255,255,255,.1);
+      --max:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 0%, rgba(59,130,246,.1), transparent),
+        linear-gradient(180deg,var(--navy-deep),var(--navy));
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:28px 0 80px}
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+    .back:hover{color:var(--text)}
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(32px,5vw,48px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+    .lead{color:var(--muted);font-size:18px;max-width:52ch;margin:0 0 28px}
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:36px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 22px;
+      border-radius:12px;
+      font-weight:650;
+      font-size:15px;
+      background:linear-gradient(180deg,var(--accent),#2563eb);
+      color:#fff;
+    }
+    .btn-outline{
+      background:transparent;
+      border:1px solid var(--line);
+      color:var(--text);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-bottom:36px;
+    }
+    @media (max-width:700px){ .grid{grid-template-columns:1fr} }
+    .tile{
+      padding:20px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+    .tile h2{margin:0 0 8px;font-size:16px}
+    .tile p{margin:0;color:var(--muted);font-size:14px}
+    .list{
+      padding:24px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.025);
+    }
+    .list h3{margin:0 0 14px;font-size:18px}
+    .list ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px;line-height:1.7}
+    footer{margin-top:40px;font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../index.html#work">← Back to J-Kano samples</a>
+    <span class="badge">Concept sample</span>
+    <h1>Summit Line Services</h1>
+    <p class="lead">
+      Licensed commercial HVAC and refrigeration—24/7 emergency response, planned maintenance, and clear SLAs for property managers and operators.
+    </p>
+    <div class="hero-cta">
+      <span class="btn">Request service</span>
+      <span class="btn btn-outline">View coverage area</span>
+    </div>
+
+    <div class="grid">
+      <div class="tile">
+        <h2>Emergency</h2>
+        <p>On-call technicians with stocked vans for critical downtime.</p>
+      </div>
+      <div class="tile">
+        <h2>Maintenance</h2>
+        <p>Quarterly inspections, documented readings, predictable billing.</p>
+      </div>
+      <div class="tile">
+        <h2>Replacement</h2>
+        <p>Load calculations, utility rebates, and phased cutovers.</p>
+      </div>
+    </div>
+
+    <div class="list">
+      <h3>Why managers hire us</h3>
+      <ul>
+        <li>Single point of contact for multi-site portfolios</li>
+        <li>Photo reports after every visit</li>
+        <li>Transparent dispatch windows—not vague “sometime Tuesday”</li>
+      </ul>
+    </div>
+
+    <footer>
+      Fictional business for layout demo only · Built as a J-Kano sample
+    </footer>
+  </div>
+</body>
+</html>
