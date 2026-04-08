@@ -6,6 +6,7 @@
   <title>J-Kano | Premium Websites for Local Businesses</title>
   <meta name="description" content="J-Kano builds premium websites, admin dashboards, and high-converting digital experiences for local businesses." />
   <meta name="theme-color" content="#0a0a0b" />
+  <!-- Forms: replace your@email.com in each form action with your inbox; activate at https://formsubmit.co -->
   <style>
     :root{
       --bg:#070809;
@@ -597,6 +598,83 @@
       font-size:12px;
     }
 
+    .project-visual-link{
+      display:block;
+      margin-bottom:18px;
+      border-radius:20px;
+      outline-offset:4px;
+    }
+
+    .project-visual-link:focus-visible{
+      outline:2px solid rgba(215,181,116,.65);
+    }
+
+    .project-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .form-card{
+      margin-bottom:28px;
+    }
+
+    .form-card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.03em;
+    }
+
+    .form-card > p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    .card form.form-inner,
+    .form-card form{
+      padding:0;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      border-radius:0;
+    }
+
+    .form-hint{
+      margin:14px 0 0;
+      font-size:13px;
+      color:var(--muted-2);
+      line-height:1.55;
+    }
+
+    .flash{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      padding:14px 20px;
+      text-align:center;
+      font-size:15px;
+      font-weight:600;
+      background:linear-gradient(180deg, rgba(19,22,28,.97), rgba(12,14,18,.97));
+      border-bottom:1px solid rgba(215,181,116,.35);
+      color:var(--text);
+      box-shadow:0 12px 40px rgba(0,0,0,.35);
+      transform:translateY(-100%);
+      opacity:0;
+      transition:transform .35s ease, opacity .35s ease;
+      pointer-events:none;
+    }
+
+    .flash.show{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+
     .reviews-wrap{
       position:relative;
       overflow:hidden;
@@ -843,6 +921,7 @@
   </style>
 </head>
 <body>
+  <div class="flash" id="form-flash" role="status" aria-live="polite"></div>
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="#top">
@@ -855,6 +934,7 @@
         <a href="#services">Services</a>
         <a href="#work">Samples</a>
         <a href="#reviews">Reviews</a>
+        <a href="#note">Note</a>
         <a href="#about">About</a>
         <a href="#contact">Request</a>
       </nav>
@@ -1117,93 +1197,108 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow">Concept demos</span>
+            <span class="eyebrow">Live samples</span>
             <h2>Sample directions for real businesses.</h2>
           </div>
           <p>
-            These are concept examples to show the kind of brands and layouts I can build. Clean, premium, and positioned to sell.
+            Open full-page sample demos—real scrollable layouts you can show clients. Each one is a standalone preview, not a fake screenshot.
           </p>
         </div>
 
         <div class="portfolio">
           <article class="project reveal">
-            <div class="project-visual farm">
-              <div class="device">
-                <div class="device-top">
-                  <strong>Farm Brand Demo</strong>
-                  <span>Luxury rustic</span>
-                </div>
-                <div class="device-bars">
-                  <div class="bar large"></div>
-                  <div class="bar mid"></div>
-                  <div class="bar small"></div>
-                  <div class="bar large"></div>
-                  <div class="bar mid"></div>
+            <a class="project-visual-link" href="samples/farm.html" aria-label="Open premium farm sample demo">
+              <div class="project-visual farm">
+                <div class="device">
+                  <div class="device-top">
+                    <strong>Farm Brand Demo</strong>
+                    <span>Luxury rustic</span>
+                  </div>
+                  <div class="device-bars">
+                    <div class="bar large"></div>
+                    <div class="bar mid"></div>
+                    <div class="bar small"></div>
+                    <div class="bar large"></div>
+                    <div class="bar mid"></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
             <h3>Premium Farm Website</h3>
             <p>
               Strong product presentation, available inventory, location, trust-building visuals, and request flow for high-value buyers.
             </p>
             <div class="tags">
-              <span class="tag">Concept Demo</span>
+              <span class="tag">Live sample</span>
               <span class="tag">Inventory style</span>
               <span class="tag">Premium agriculture</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="samples/farm.html">Open sample</a>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-visual deli">
-              <div class="device">
-                <div class="device-top">
-                  <strong>Deli / Grocery Demo</strong>
-                  <span>Bold premium retail</span>
-                </div>
-                <div class="device-bars">
-                  <div class="bar large"></div>
-                  <div class="bar mid"></div>
-                  <div class="bar large"></div>
-                  <div class="bar small"></div>
-                  <div class="bar mid"></div>
+            <a class="project-visual-link" href="samples/deli.html" aria-label="Open grocery and deli sample demo">
+              <div class="project-visual deli">
+                <div class="device">
+                  <div class="device-top">
+                    <strong>Deli / Grocery Demo</strong>
+                    <span>Bold premium retail</span>
+                  </div>
+                  <div class="device-bars">
+                    <div class="bar large"></div>
+                    <div class="bar mid"></div>
+                    <div class="bar large"></div>
+                    <div class="bar small"></div>
+                    <div class="bar mid"></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
             <h3>Grocery and Deli Site</h3>
             <p>
               Ideal for menus, featured products, weekly updates, offers, location, and a polished brand feel that looks way above average.
             </p>
             <div class="tags">
-              <span class="tag">Concept Demo</span>
+              <span class="tag">Live sample</span>
               <span class="tag">Retail</span>
               <span class="tag">Menu ready</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="samples/deli.html">Open sample</a>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-visual restaurant">
-              <div class="device">
-                <div class="device-top">
-                  <strong>Restaurant Demo</strong>
-                  <span>Dark luxury dining</span>
-                </div>
-                <div class="device-bars">
-                  <div class="bar mid"></div>
-                  <div class="bar large"></div>
-                  <div class="bar small"></div>
-                  <div class="bar large"></div>
-                  <div class="bar mid"></div>
+            <a class="project-visual-link" href="samples/restaurant.html" aria-label="Open restaurant sample demo">
+              <div class="project-visual restaurant">
+                <div class="device">
+                  <div class="device-top">
+                    <strong>Restaurant Demo</strong>
+                    <span>Dark luxury dining</span>
+                  </div>
+                  <div class="device-bars">
+                    <div class="bar mid"></div>
+                    <div class="bar large"></div>
+                    <div class="bar small"></div>
+                    <div class="bar large"></div>
+                    <div class="bar mid"></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
             <h3>Restaurant Experience Site</h3>
             <p>
               A mood-heavy layout built for booking, menu presentation, atmosphere, social proof, and stronger visual branding.
             </p>
             <div class="tags">
-              <span class="tag">Concept Demo</span>
+              <span class="tag">Live sample</span>
               <span class="tag">Hospitality</span>
               <span class="tag">High-end visual</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="samples/restaurant.html">Open sample</a>
             </div>
           </article>
         </div>
@@ -1218,9 +1313,57 @@
             <h2>Premium look. Real-business energy.</h2>
           </div>
           <p>
-            Moving social proof gives the site life and instantly makes the brand feel more established.
+            Read what clients say below—or leave your own review. Submissions go straight to my inbox so I can follow up or add you to the site with your permission.
           </p>
         </div>
+
+        <article class="card reveal form-card" id="leave-review">
+          <h3>Leave a review</h3>
+          <p>
+            Share your name, business, star rating, and a short note. Honest feedback helps other owners decide—and helps me improve.
+          </p>
+          <form class="form-inner" action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="hidden" name="_subject" value="New review — J-Kano website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="" data-form-redirect="?thanks=review" />
+            <div class="form-grid">
+              <div class="field">
+                <label for="review-name">Your name</label>
+                <input id="review-name" name="name" type="text" required placeholder="First name or full name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="review-role">Business or role</label>
+                <input id="review-role" name="business_or_role" type="text" required placeholder="e.g. Deli owner, Farm stand" />
+              </div>
+              <div class="field">
+                <label for="review-rating">Rating</label>
+                <select id="review-rating" name="rating" required>
+                  <option value="" disabled selected>Choose stars</option>
+                  <option value="5">5 — Excellent</option>
+                  <option value="4">4 — Great</option>
+                  <option value="3">3 — Good</option>
+                  <option value="2">2 — Okay</option>
+                  <option value="1">1 — Needs work</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="review-email">Email (optional)</label>
+                <input id="review-email" name="_replyto" type="email" placeholder="So I can say thanks" autocomplete="email" />
+              </div>
+              <div class="field full">
+                <label for="review-text">Your review</label>
+                <textarea id="review-text" name="review" required placeholder="What stood out? Would you recommend J-Kano?"></textarea>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Submit review</button>
+              </div>
+            </div>
+            <p class="form-hint">
+              Replace <code style="color:var(--gold)">your@email.com</code> in this form’s action URL with your real inbox, then confirm the first submission at FormSubmit.
+            </p>
+          </form>
+        </article>
 
         <div class="reviews-wrap reveal">
           <div class="reviews-track">
@@ -1271,6 +1414,49 @@
             <article class="review"><div class="stars">★★★★★</div><p>It looked strong on mobile too which is where most of our customers see us first.</p><strong>Kayla</strong><span>Food brand</span></article>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="note">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Quick note</span>
+            <h2>Leave a note.</h2>
+          </div>
+          <p>
+            Not ready for a full project form? Drop a short message—question, idea, or hello. Same inbox as reviews and project requests.
+          </p>
+        </div>
+
+        <article class="card reveal form-card" style="max-width:720px;margin:0 auto">
+          <form class="form-inner" action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="hidden" name="_subject" value="Quick note — J-Kano website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="" data-form-redirect="?thanks=note" />
+            <div class="form-grid">
+              <div class="field">
+                <label for="note-name">Name (optional)</label>
+                <input id="note-name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="note-email">Email (optional)</label>
+                <input id="note-email" name="_replyto" type="email" placeholder="If you want a reply" autocomplete="email" />
+              </div>
+              <div class="field full">
+                <label for="note-body">Your note</label>
+                <textarea id="note-body" name="message" required placeholder="Say what’s on your mind." style="min-height:120px"></textarea>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Send note</button>
+              </div>
+            </div>
+            <p class="form-hint" style="margin-top:18px">
+              Uses the same FormSubmit address as the other forms—replace <code style="color:var(--gold)">your@email.com</code> in the action URL.
+            </p>
+          </form>
+        </article>
       </div>
     </section>
 
@@ -1345,83 +1531,90 @@
             </div>
           </aside>
 
-          <form class="reveal" onsubmit="event.preventDefault(); alert('Nice. This is the visual version for now. Later we can connect this form to email or a real backend.');">
+          <form class="reveal" action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="hidden" name="_subject" value="Project request — J-Kano website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="" data-form-redirect="?thanks=project" />
             <div class="form-grid">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" />
+                <input id="name" name="name" type="text" required placeholder="Your name" autocomplete="name" />
               </div>
 
               <div class="field">
                 <label for="business">Business name</label>
-                <input id="business" type="text" placeholder="Your business name" />
+                <input id="business" name="business_name" type="text" required placeholder="Your business name" />
               </div>
 
               <div class="field">
                 <label for="social">Instagram or TikTok</label>
-                <input id="social" type="text" placeholder="@yourbrand" />
+                <input id="social" name="social" type="text" placeholder="@yourbrand" />
               </div>
 
               <div class="field">
                 <label for="referral">Referred by</label>
-                <input id="referral" type="text" placeholder="Who sent you?" />
+                <input id="referral" name="referred_by" type="text" placeholder="Who sent you?" />
               </div>
 
               <div class="field">
                 <label for="color">Desired website style or color</label>
-                <input id="color" type="text" placeholder="Dark luxury, minimal white, earthy premium..." />
+                <input id="color" name="style" type="text" placeholder="Dark luxury, minimal white, earthy premium..." />
               </div>
 
               <div class="field">
                 <label for="type">Business type</label>
-                <select id="type">
-                  <option>Choose one</option>
-                  <option>Farm</option>
-                  <option>Grocery / Deli</option>
-                  <option>Restaurant</option>
-                  <option>Contractor / Service Business</option>
-                  <option>Beauty / Salon</option>
-                  <option>Retail Brand</option>
-                  <option>Other</option>
+                <select id="type" name="business_type" required>
+                  <option value="" disabled selected>Choose one</option>
+                  <option value="Farm">Farm</option>
+                  <option value="Grocery / Deli">Grocery / Deli</option>
+                  <option value="Restaurant">Restaurant</option>
+                  <option value="Contractor / Service Business">Contractor / Service Business</option>
+                  <option value="Beauty / Salon">Beauty / Salon</option>
+                  <option value="Retail Brand">Retail Brand</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div class="field">
                 <label for="budget">Budget</label>
-                <select id="budget">
-                  <option>Choose a range</option>
-                  <option>$500 to $1000</option>
-                  <option>$1000 to $2500</option>
-                  <option>$2500 to $5000</option>
-                  <option>$5000+</option>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Choose a range</option>
+                  <option value="$500 to $1000">$500 to $1000</option>
+                  <option value="$1000 to $2500">$1000 to $2500</option>
+                  <option value="$2500 to $5000">$2500 to $5000</option>
+                  <option value="$5000+">$5000+</option>
                 </select>
               </div>
 
               <div class="field">
                 <label for="features">Wanted features</label>
-                <select id="features">
-                  <option>Choose focus</option>
-                  <option>Basic website</option>
-                  <option>Photo gallery</option>
-                  <option>Contact form</option>
-                  <option>Online ordering</option>
-                  <option>Admin dashboard</option>
-                  <option>Product management</option>
-                  <option>Booking form</option>
-                  <option>Blog or posts</option>
-                  <option>Custom requests</option>
+                <select id="features" name="features" required>
+                  <option value="" disabled selected>Choose focus</option>
+                  <option value="Basic website">Basic website</option>
+                  <option value="Photo gallery">Photo gallery</option>
+                  <option value="Contact form">Contact form</option>
+                  <option value="Online ordering">Online ordering</option>
+                  <option value="Admin dashboard">Admin dashboard</option>
+                  <option value="Product management">Product management</option>
+                  <option value="Booking form">Booking form</option>
+                  <option value="Blog or posts">Blog or posts</option>
+                  <option value="Custom requests">Custom requests</option>
                 </select>
               </div>
 
               <div class="field full">
                 <label for="notes">Extra notes</label>
-                <textarea id="notes" placeholder="Tell me what you want the website to feel like, what pages or tools you need, and anything else important."></textarea>
+                <textarea id="notes" name="extra_notes" placeholder="Tell me what you want the website to feel like, what pages or tools you need, and anything else important."></textarea>
               </div>
 
               <div class="field full">
                 <button class="btn btn-primary" type="submit">Send Project Request</button>
               </div>
             </div>
+            <p class="form-hint" style="margin-top:20px">
+              Replace <code style="color:var(--gold)">your@email.com</code> in the form action with your email and activate FormSubmit on first send.
+            </p>
           </form>
         </div>
       </div>
@@ -1436,6 +1629,7 @@
         <a href="#services">Services</a>
         <a href="#work">Samples</a>
         <a href="#reviews">Reviews</a>
+        <a href="#note">Note</a>
         <a href="#contact">Request</a>
       </div>
     </div>
@@ -1453,6 +1647,40 @@
     }, {threshold:0.12});
 
     reveals.forEach(el=>io.observe(el));
+
+    (function(){
+      let redirectBase = '';
+      try{
+        if(typeof location !== 'undefined' && location.href){
+          redirectBase = new URL('.', location.href).href;
+          if(!redirectBase.endsWith('/')) redirectBase += '/';
+        }
+      }catch(_){ /* keep empty */ }
+
+      document.querySelectorAll('input[name="_next"][data-form-redirect]').forEach((inp)=>{
+        const q = inp.getAttribute('data-form-redirect') || '';
+        inp.value = redirectBase ? (redirectBase + q) : '';
+      });
+
+      const params = new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
+      const flash = document.getElementById('form-flash');
+      const thanks = params.get('thanks');
+      const messages = {
+        review: 'Thanks — your review was sent.',
+        note: 'Thanks — your note was sent.',
+        project: 'Thanks — your project request was sent.'
+      };
+      if(flash && thanks && messages[thanks]){
+        flash.textContent = messages[thanks];
+        flash.classList.add('show');
+        setTimeout(()=>flash.classList.remove('show'), 5200);
+        if(typeof history !== 'undefined' && history.replaceState){
+          const u = new URL(location.href);
+          u.searchParams.delete('thanks');
+          history.replaceState({}, '', u.pathname + (u.search || '') + (u.hash || ''));
+        }
+      }
+    })();
   </script>
 </body>
 </html>

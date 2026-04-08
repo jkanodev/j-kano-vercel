@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sample — Heritage Field Farm | J-Kano</title>
+  <meta name="description" content="Concept demo: premium farm and agriculture website layout." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{
+      --bg:#070809;
+      --text:#f5f7fb;
+      --muted:#b8c0ce;
+      --gold:#d7b574;
+      --line:rgba(255,255,255,.08);
+      --card:rgba(255,255,255,.04);
+      --max:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(215,181,116,.16), transparent 28%),
+        linear-gradient(180deg,#050607,#0a0c0f 40%,#070809);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:28px 0 80px}
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+    .back:hover{color:var(--text)}
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      font-size:12px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(32px,5vw,52px);
+      line-height:1.05;
+      letter-spacing:-.035em;
+    }
+    .lead{color:var(--muted);font-size:18px;max-width:52ch;margin:0 0 36px}
+    .grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      margin-bottom:40px;
+    }
+    .tile{
+      padding:22px;
+      border-radius:20px;
+      background:var(--card);
+      border:1px solid var(--line);
+    }
+    .tile h2{margin:0 0 8px;font-size:18px}
+    .tile p{margin:0;color:var(--muted);font-size:14px}
+    .price{color:var(--gold);font-weight:700;font-size:15px;margin-top:10px}
+    .cta{
+      padding:28px;
+      border-radius:22px;
+      border:1px solid rgba(215,181,116,.35);
+      background:linear-gradient(180deg,rgba(215,181,116,.12),rgba(255,255,255,.02));
+      text-align:center;
+    }
+    .cta h2{margin:0 0 10px;font-size:24px}
+    .cta p{margin:0 0 18px;color:var(--muted);font-size:15px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 22px;
+      border-radius:14px;
+      font-weight:650;
+      font-size:15px;
+      background:linear-gradient(135deg,#e2c48b,#cda35f);
+      color:#0e0d0b;
+    }
+    footer{margin-top:40px;font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../index.html#work">← Back to J-Kano samples</a>
+    <span class="badge">Concept sample</span>
+    <h1>Heritage Field Farm</h1>
+    <p class="lead">
+      Seasonal produce, pasture-raised goods, and farm pickup—presented like a premium brand, not a flyer.
+    </p>
+
+    <div class="grid">
+      <div class="tile">
+        <h2>Spring greens box</h2>
+        <p>Lettuces, kale, herbs. Picked the morning of pickup.</p>
+        <div class="price">From $42</div>
+      </div>
+      <div class="tile">
+        <h2>Farm eggs</h2>
+        <p>Weekly subscription or one-time dozen at the stand.</p>
+        <div class="price">$9 / dozen</div>
+      </div>
+      <div class="tile">
+        <h2>Whole hog shares</h2>
+        <p>Limited quarters each season. Deposit holds your spot.</p>
+        <div class="price">Inquire</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Visit or request availability</h2>
+      <p>This demo shows how inventory-style offers and trust copy can live on one clean page.</p>
+      <span class="btn">Request this week’s list</span>
+    </div>
+
+    <footer>
+      Fictional business for layout demo only · Built as a J-Kano sample
+    </footer>
+  </div>
+</body>
+</html>
