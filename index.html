@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Forms: replace your@email.com in each form action with your inbox; activate at https://formsubmit.co -->
+  <!-- Forms: FormSubmit → dev.joseph.k@gmail.com (confirm first submission at https://formsubmit.co) -->
   <style>
     :root{
       --navy-deep:#060a12;
@@ -868,6 +868,223 @@
 
     textarea{min-height:150px;resize:vertical}
 
+    .section-contact{
+      background:linear-gradient(180deg,rgba(6,10,18,.4),transparent);
+      border-top:1px solid var(--line);
+    }
+
+    .contact-grid--request{
+      grid-template-columns:minmax(0,340px) minmax(0,1fr);
+      align-items:start;
+      gap:28px;
+    }
+
+    .contact-vcard{
+      padding:28px;
+      border-radius:var(--radius);
+      background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border:1px solid var(--line-strong);
+      box-shadow:var(--shadow);
+    }
+
+    .contact-vcard .co{
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+
+    .contact-vcard h3{
+      margin:0 0 6px;
+      font-size:26px;
+      letter-spacing:-.03em;
+    }
+
+    .contact-vcard .role{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .contact-vcard .direct{
+      display:grid;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .contact-vcard .direct a{
+      color:var(--text);
+      font-size:17px;
+      font-weight:600;
+      display:block;
+    }
+
+    .contact-vcard .direct a:hover{color:var(--accent)}
+
+    .contact-vcard .direct small{
+      display:block;
+      font-size:12px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      color:var(--muted-2);
+      margin-bottom:4px;
+    }
+
+    .contact-vcard .blurb{
+      margin:0;
+      font-size:14px;
+      line-height:1.65;
+      color:var(--muted);
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .form-request{
+      padding:32px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 28px 70px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .form-request .form-head{
+      margin-bottom:26px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .form-request .form-head h2{
+      margin:0 0 10px;
+      font-size:clamp(24px,3vw,32px);
+      letter-spacing:-.03em;
+      line-height:1.15;
+    }
+
+    .form-request .form-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.65;
+      max-width:52ch;
+    }
+
+    .form-request .form-grid{
+      gap:18px;
+    }
+
+    .form-request label{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#cbd5e1;
+    }
+
+    .form-request input,
+    .form-request select{
+      background:#fff;
+      color:#0f172a;
+      border:1px solid #cbd5e1;
+      border-radius:12px;
+      padding:14px 16px;
+      font-size:16px;
+    }
+
+    .form-request input::placeholder{color:#64748b}
+
+    .form-request input:focus,
+    .form-request select:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(59,130,246,.2);
+    }
+
+    .form-request .submit-row{
+      margin-top:8px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .form-request .btn-primary{
+      min-height:54px;
+      font-size:16px;
+      letter-spacing:.01em;
+    }
+
+    .request-checks{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .request-checks li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      font-size:14px;
+      color:#e2e8f0;
+      line-height:1.45;
+    }
+
+    .request-checks .mark{
+      color:#22c55e;
+      font-weight:800;
+      flex-shrink:0;
+      font-size:15px;
+      line-height:1.35;
+    }
+
+    .request-trust-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      margin-top:22px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .request-trust-strip span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .request-trust-strip span::before{
+      content:"";
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#22c55e;
+      opacity:.85;
+    }
+
+    .footer-brand{
+      display:grid;
+      gap:6px;
+      max-width:420px;
+    }
+
+    .footer-brand strong{
+      font-size:16px;
+      letter-spacing:.02em;
+      color:var(--text);
+    }
+
+    .footer-brand .footer-contact{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .footer-brand a{color:var(--text)}
+    .footer-brand a:hover{color:var(--accent)}
+
     .footer{
       padding:34px 0 50px;
       border-top:1px solid rgba(255,255,255,.06);
@@ -877,8 +1094,8 @@
     .footer-row{
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      gap:18px;
+      align-items:flex-start;
+      gap:24px;
       flex-wrap:wrap;
     }
 
@@ -1188,13 +1405,12 @@
         <a href="#work">Samples</a>
         <a href="#reviews">Reviews</a>
         <a href="#about">About</a>
-        <a href="#note">Note</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Request</a>
       </nav>
 
       <div class="btns">
         <a class="btn btn-secondary" href="#showcase">See live previews</a>
-        <a class="btn btn-primary" href="#contact">Get started</a>
+        <a class="btn btn-primary" href="#contact">Request your site</a>
       </div>
     </div>
   </header>
@@ -1623,16 +1839,16 @@
             <h2>Feedback from owners like you</h2>
           </div>
           <p>
-            Representative notes from past collaborations—plus a form if you want to share your own experience. Submissions go to my inbox for moderation before anything goes public.
+            Representative feedback from past collaborations—plus a form to share your own experience. Submissions are reviewed before anything is shown publicly.
           </p>
         </div>
 
         <article class="card reveal form-card" id="leave-review">
-          <h3>Leave a review</h3>
+          <h3>Share a review</h3>
           <p>
-            Share your name, business, star rating, and a short note. Honest feedback helps other owners decide—and helps me improve.
+            Your name, business, rating, and a brief testimonial. Honest feedback helps other owners decide—and helps us improve.
           </p>
-          <form class="form-inner" action="https://formsubmit.co/your@email.com" method="POST">
+          <form class="form-inner" action="https://formsubmit.co/dev.joseph.k@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New review — J-Kano website" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
@@ -1669,9 +1885,6 @@
                 <button class="btn btn-primary" type="submit">Submit review</button>
               </div>
             </div>
-            <p class="form-hint">
-              Replace <code style="color:var(--accent)">your@email.com</code> in this form’s action URL with your real inbox, then confirm the first submission at FormSubmit.
-            </p>
           </form>
         </article>
 
@@ -1727,49 +1940,6 @@
       </div>
     </section>
 
-    <section class="section" id="note">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="eyebrow">Quick note</span>
-            <h2>Leave a note.</h2>
-          </div>
-          <p>
-            Not ready for a full project form? Drop a short message—question, idea, or hello. Same inbox as reviews and project requests.
-          </p>
-        </div>
-
-        <article class="card reveal form-card" style="max-width:720px;margin:0 auto">
-          <form class="form-inner" action="https://formsubmit.co/your@email.com" method="POST">
-            <input type="hidden" name="_subject" value="Quick note — J-Kano website" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="" data-form-redirect="?thanks=note" />
-            <div class="form-grid">
-              <div class="field">
-                <label for="note-name">Name (optional)</label>
-                <input id="note-name" name="name" type="text" placeholder="Your name" autocomplete="name" />
-              </div>
-              <div class="field">
-                <label for="note-email">Email (optional)</label>
-                <input id="note-email" name="_replyto" type="email" placeholder="If you want a reply" autocomplete="email" />
-              </div>
-              <div class="field full">
-                <label for="note-body">Your note</label>
-                <textarea id="note-body" name="message" required placeholder="Say what’s on your mind." style="min-height:120px"></textarea>
-              </div>
-              <div class="field full">
-                <button class="btn btn-primary" type="submit">Send note</button>
-              </div>
-            </div>
-            <p class="form-hint" style="margin-top:18px">
-              Uses the same FormSubmit address as the other forms—replace <code style="color:var(--accent)">your@email.com</code> in the action URL.
-            </p>
-          </form>
-        </article>
-      </div>
-    </section>
-
     <section class="section" id="about">
       <div class="container">
         <div class="section-head reveal">
@@ -1806,76 +1976,66 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section section-contact" id="contact">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="eyebrow">Request a project</span>
-            <h2>Tell me what you want built.</h2>
-          </div>
-          <p>
-            Give me the business, the brand direction, the budget range, and the features you want. I’ll know pretty fast what kind of build makes sense.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <aside class="contact-panel reveal">
-            <h3>Start with clarity.</h3>
-            <p>
-              The more direct you are, the better the outcome. Tell me what your business is, what you want people to feel when they land on your site, and whether you want simple presentation or a real admin-backed setup.
-            </p>
-
-            <div class="contact-list">
-              <div class="contact-item">
-                <strong>Business style</strong>
-                <span>Professional, minimal, bold retail, food service, trades, modern SaaS-style, or fully custom.</span>
+        <div class="contact-grid contact-grid--request">
+          <aside class="contact-vcard reveal">
+            <p class="co">J-Kano</p>
+            <h3>Joseph Kano</h3>
+            <p class="role">Owner · Web design &amp; development</p>
+            <div class="direct">
+              <div>
+                <small>Phone</small>
+                <a href="tel:+16175643177">617-564-3177</a>
               </div>
-              <div class="contact-item">
-                <strong>Good fit</strong>
-                <span>Farms, delis, restaurants, service businesses, local brands, and businesses that want to look more serious online.</span>
-              </div>
-              <div class="contact-item">
-                <strong>Need admin tools?</strong>
-                <span>Say that up front if you want to manage products, reviews, photos, posts, requests, or customer actions.</span>
+              <div>
+                <small>Email</small>
+                <a href="mailto:dev.joseph.k@gmail.com">dev.joseph.k@gmail.com</a>
               </div>
             </div>
+            <p class="blurb">
+              You’re talking directly with the person who designs and builds your site—no offshore farm, no account manager shuffle. We work with serious local businesses that want a credible web presence and a partner who answers the phone.
+            </p>
           </aside>
 
-          <form class="reveal" action="https://formsubmit.co/your@email.com" method="POST">
-            <input type="hidden" name="_subject" value="Project request — J-Kano website" />
+          <form class="form-request reveal" action="https://formsubmit.co/dev.joseph.k@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Website request — J-Kano" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" value="" data-form-redirect="?thanks=project" />
+            <div class="form-head">
+              <h2>Request Your Website</h2>
+              <p>Tell us a few details about your business and what you want built. We’ll review your request and get in touch with you soon.</p>
+            </div>
             <div class="form-grid">
               <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" required placeholder="Your name" autocomplete="name" />
+                <label for="req-name">Full Name</label>
+                <input id="req-name" name="full_name" type="text" required placeholder="Full legal or preferred name" autocomplete="name" />
               </div>
-
               <div class="field">
-                <label for="business">Business name</label>
-                <input id="business" name="business_name" type="text" required placeholder="Your business name" />
+                <label for="req-phone">Phone Number</label>
+                <input id="req-phone" name="phone" type="tel" required placeholder="(617) 555-0100" autocomplete="tel" />
               </div>
-
-              <div class="field">
-                <label for="social">Instagram or TikTok</label>
-                <input id="social" name="social" type="text" placeholder="@yourbrand" />
+              <div class="field full">
+                <label for="req-business">Business Name</label>
+                <input id="req-business" name="business_name" type="text" required placeholder="Registered or DBA name" autocomplete="organization" />
               </div>
-
               <div class="field">
-                <label for="referral">Referred by</label>
-                <input id="referral" name="referred_by" type="text" placeholder="Who sent you?" />
+                <label for="req-social">Instagram or TikTok</label>
+                <input id="req-social" name="social_handle" type="text" placeholder="@handle or profile URL" />
               </div>
-
               <div class="field">
-                <label for="color">Desired website style or color</label>
-                <input id="color" name="style" type="text" placeholder="e.g. navy &amp; white, clean minimal, bold retail..." />
+                <label for="req-referral">Referred By</label>
+                <input id="req-referral" name="referred_by" type="text" placeholder="Name or referral source" />
               </div>
-
+              <div class="field full">
+                <label for="req-style">Desired Website Style or Color</label>
+                <input id="req-style" name="website_style" type="text" placeholder="e.g. Navy &amp; white, minimal, bold retail…" />
+              </div>
               <div class="field">
-                <label for="type">Business type</label>
-                <select id="type" name="business_type" required>
-                  <option value="" disabled selected>Choose one</option>
+                <label for="req-type">Business Type</label>
+                <select id="req-type" name="business_type" required>
+                  <option value="" disabled selected>Select type</option>
                   <option value="Farm">Farm</option>
                   <option value="Grocery / Deli">Grocery / Deli</option>
                   <option value="Restaurant">Restaurant</option>
@@ -1885,22 +2045,20 @@
                   <option value="Other">Other</option>
                 </select>
               </div>
-
               <div class="field">
-                <label for="budget">Budget</label>
-                <select id="budget" name="budget" required>
-                  <option value="" disabled selected>Choose a range</option>
-                  <option value="$500 to $1000">$500 to $1000</option>
-                  <option value="$1000 to $2500">$1000 to $2500</option>
-                  <option value="$2500 to $5000">$2500 to $5000</option>
-                  <option value="$5000+">$5000+</option>
+                <label for="req-budget">Budget</label>
+                <select id="req-budget" name="budget" required>
+                  <option value="" disabled selected>Select range</option>
+                  <option value="$500 to $1000">$500 to $1,000</option>
+                  <option value="$1000 to $2500">$1,000 to $2,500</option>
+                  <option value="$2500 to $5000">$2,500 to $5,000</option>
+                  <option value="$5000+">$5,000+</option>
                 </select>
               </div>
-
-              <div class="field">
-                <label for="features">Wanted features</label>
-                <select id="features" name="features" required>
-                  <option value="" disabled selected>Choose focus</option>
+              <div class="field full">
+                <label for="req-features">Wanted Features</label>
+                <select id="req-features" name="wanted_features" required>
+                  <option value="" disabled selected>Select primary focus</option>
                   <option value="Basic website">Basic website</option>
                   <option value="Photo gallery">Photo gallery</option>
                   <option value="Contact form">Contact form</option>
@@ -1909,22 +2067,26 @@
                   <option value="Product management">Product management</option>
                   <option value="Booking form">Booking form</option>
                   <option value="Blog or posts">Blog or posts</option>
-                  <option value="Custom requests">Custom requests</option>
+                  <option value="Custom / multiple features">Custom / multiple features</option>
                 </select>
               </div>
-
-              <div class="field full">
-                <label for="notes">Extra notes</label>
-                <textarea id="notes" name="extra_notes" placeholder="Tell me what you want the website to feel like, what pages or tools you need, and anything else important."></textarea>
-              </div>
-
-              <div class="field full">
-                <button class="btn btn-primary" type="submit">Send Project Request</button>
+              <div class="field full submit-row">
+                <button class="btn btn-primary" type="submit">Submit website request</button>
+                <ul class="request-checks" aria-label="What to expect after you submit">
+                  <li><span class="mark" aria-hidden="true">✓</span> We’ll get in touch with you soon</li>
+                  <li><span class="mark" aria-hidden="true">✓</span> We never sell your information</li>
+                  <li><span class="mark" aria-hidden="true">✓</span> No spam or annoying follow-ups</li>
+                  <li><span class="mark" aria-hidden="true">✓</span> Built for serious business owners</li>
+                </ul>
+                <div class="request-trust-strip" role="presentation">
+                  <span>We’ll get in touch with you soon</span>
+                  <span>We never sell your data</span>
+                  <span>No spam</span>
+                  <span>No pressure</span>
+                  <span>Your info stays private</span>
+                </div>
               </div>
             </div>
-            <p class="form-hint" style="margin-top:20px">
-              Replace <code style="color:var(--accent)">your@email.com</code> in the form action with your email and activate FormSubmit on first send.
-            </p>
           </form>
         </div>
       </div>
@@ -1933,7 +2095,16 @@
 
   <footer class="footer">
     <div class="container footer-row">
-      <small>J-Kano by Joseph Kano • Premium websites for local businesses</small>
+      <div class="footer-brand">
+        <strong>J-Kano</strong>
+        <div class="footer-contact">
+          Joseph Kano, Owner<br />
+          <a href="tel:+16175643177">617-564-3177</a>
+          ·
+          <a href="mailto:dev.joseph.k@gmail.com">dev.joseph.k@gmail.com</a>
+        </div>
+        <small style="display:block;margin-top:10px;color:var(--muted-2);font-size:13px;line-height:1.5">Modern websites for local businesses · United States</small>
+      </div>
       <div class="footer-links">
         <a href="#pricing">Pricing</a>
         <a href="#showcase">Previews</a>
@@ -1941,8 +2112,8 @@
         <a href="#services">Services</a>
         <a href="#work">Samples</a>
         <a href="#reviews">Reviews</a>
-        <a href="#note">Note</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#contact">Request</a>
       </div>
     </div>
   </footer>
@@ -1979,8 +2150,7 @@
       const thanks = params.get('thanks');
       const messages = {
         review: 'Thanks — your review was sent.',
-        note: 'Thanks — your note was sent.',
-        project: 'Thanks — your project request was sent.'
+        project: 'Thanks — we received your website request and will be in touch soon.'
       };
       if(flash && thanks && messages[thanks]){
         flash.textContent = messages[thanks];
