@@ -53,7 +53,7 @@
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
     .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-    .section{padding:100px 0}
+    .section{padding:92px 0}
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -126,6 +126,20 @@
 
     .nav-links a:hover{color:var(--text)}
 
+    .nav-links .nav-admin,
+    .footer-links .footer-admin{
+      opacity:.72;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .nav-links .nav-admin:hover,
+    .footer-links .footer-admin:hover{
+      opacity:1;
+      color:var(--text);
+    }
+
     .btns{
       display:flex;
       gap:12px;
@@ -171,7 +185,7 @@
 
     .hero{
       position:relative;
-      padding:96px 0 56px;
+      padding:88px 0 52px;
     }
 
     .hero-grid{
@@ -709,6 +723,126 @@
 
     .reviews-track.reverse{animation-direction:reverse;animation-duration:72s;margin-top:18px}
 
+    .reviews-actions{
+      display:flex;
+      justify-content:flex-end;
+      margin:-6px 0 22px;
+    }
+
+    .reviews-actions .btn{
+      min-height:46px;
+      padding:0 16px;
+      border-radius:12px;
+      font-size:14px;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:120;
+      display:none;
+      align-items:flex-end;
+      justify-content:center;
+      padding:18px;
+    }
+
+    .modal.show{display:flex}
+
+    .modal-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(2,6,23,.72);
+      backdrop-filter:blur(10px);
+    }
+
+    .modal-panel{
+      position:relative;
+      width:min(720px,100%);
+      max-height:min(84vh,760px);
+      overflow:auto;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+      box-shadow:0 30px 90px rgba(0,0,0,.6);
+      padding:22px;
+    }
+
+    .modal-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:14px;
+      padding-bottom:14px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .modal-head h3{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.02em;
+    }
+
+    .modal-head p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:60ch;
+    }
+
+    .modal-close{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .modal-close:hover{background:rgba(255,255,255,.08)}
+
+    .review-form{
+      padding:0;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      border-radius:0;
+    }
+
+    .review-form label{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#cbd5e1;
+    }
+
+    .review-form input,
+    .review-form select,
+    .review-form textarea{
+      background:#fff;
+      color:#0f172a;
+      border:1px solid #cbd5e1;
+      border-radius:12px;
+      padding:14px 16px;
+      font-size:16px;
+    }
+
+    .review-form textarea{min-height:140px;resize:vertical}
+
+    .review-form input::placeholder,
+    .review-form textarea::placeholder{color:#64748b}
+
+    .review-form input:focus,
+    .review-form select:focus,
+    .review-form textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(59,130,246,.2);
+    }
+
     .review{
       width:340px;
       padding:24px;
@@ -1119,7 +1253,7 @@
     }
 
     .showcase-section{
-      padding:72px 0 88px;
+      padding:64px 0 78px;
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
       background:
@@ -1418,8 +1552,8 @@
     }
 
     @media (max-width:760px){
-      .section{padding:78px 0}
-      .hero{padding-top:72px}
+      .section{padding:70px 0}
+      .hero{padding-top:64px}
       .nav{min-height:72px}
       .nav-links{display:none}
       .hero-points,
@@ -1453,11 +1587,12 @@
         <a href="#reviews">Reviews</a>
         <a href="#about">About</a>
         <a href="#contact">Request</a>
+        <a class="nav-admin" href="/admin">Admin</a>
       </nav>
 
       <div class="btns">
         <a class="btn btn-secondary" href="#showcase">See the demo</a>
-        <a class="btn btn-primary" href="#contact">Request your site</a>
+        <a class="btn btn-primary" href="#contact">Request a website</a>
       </div>
     </div>
   </header>
@@ -1473,12 +1608,12 @@
             Win more <span class="soft">customers.</span>
           </h1>
           <p class="lead">
-            J-Kano is a focused web studio for local businesses that need clarity, credibility, and conversion—not cookie-cutter templates. Mobile-first layouts, disciplined typography, and optional admin tools when you outgrow static pages. <strong style="color:var(--text);font-weight:600">See one flagship build below—the benchmark for every site we ship.</strong>
+            J-Kano builds clear, modern websites for local businesses that want to look credible and win more customers—without template noise. Mobile-first layouts, disciplined typography, and optional admin tools when you outgrow static pages. <strong style="color:var(--text);font-weight:600">See one live demo below to judge quality up front.</strong>
           </p>
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="#pricing">View pricing</a>
-            <a class="btn btn-secondary" href="#showcase">View flagship demo</a>
+            <a class="btn btn-secondary" href="#showcase">View the demo</a>
           </div>
 
           <div class="hero-points">
@@ -1544,7 +1679,7 @@
                 </div>
                 <div class="mini-box">
                   <h4>Leads you can use</h4>
-                  <p>Forms structured around budget, timeline, and scope—fewer tire-kickers.</p>
+              <p>Forms structured around budget, timeline, and scope—fewer unqualified leads.</p>
                 </div>
               </div>
             </div>
@@ -1640,17 +1775,19 @@
         </div>
 
         <div class="pricing-trust reveal">
-          <strong>How billing works:</strong> starting prices cover a defined baseline; custom data, advanced integrations, or unusual scope are quoted transparently before work begins. Monthly support typically runs <strong>$50–$150</strong> for hosting guidance, small content tweaks, and priority help—exact retainer depends on your needs.
+          <strong>Monthly Support:</strong> <strong>$50 to $150 per month</strong> — hosting help, small edits, updates, support, and maintenance.
+          <br />
+          <strong>How billing works:</strong> starting prices cover a defined baseline; custom data, advanced integrations, or unusual scope are quoted transparently before work begins.
         </div>
       </div>
     </section>
 
-    <section class="showcase-section" id="showcase" aria-label="Flagship website demo">
+    <section class="showcase-section" id="showcase" aria-label="Website demo">
       <div class="container">
         <div class="demo-solo-head reveal">
           <span class="eyebrow">Reference build</span>
-          <h2>One demo. That’s the bar.</h2>
-          <p>Retail-grade clarity and calm confidence—the same product discipline we apply to every J-Kano launch. Scroll inside the frame or open the full site in a new tab.</p>
+          <h2>One live demo</h2>
+          <p>A real build you can scroll through. Open it in a new tab if you want to explore the full site.</p>
         </div>
         <div class="demo-frame-wrap reveal">
           <div class="frame-laptop frame-laptop--solo">
@@ -1659,7 +1796,7 @@
               <div class="frame-url">kerstencrawford.com</div>
             </div>
             <div class="frame-screen frame-screen--solo">
-              <iframe title="Kersten Crawford — flagship J-Kano reference site" src="https://www.kerstencrawford.com/" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe title="Kersten Crawford — J-Kano demo reference site" src="https://www.kerstencrawford.com/" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
           <p class="demo-caption">Kersten Crawford — live client build</p>
@@ -1779,61 +1916,68 @@
             <h2>Feedback from owners like you</h2>
           </div>
           <p>
-            Representative feedback from past collaborations—plus a form to share your own experience. Submissions are reviewed before anything is shown publicly.
+            Auto-scrolling feedback from past collaborations. If you’ve worked with J-Kano, you can submit a review any time.
           </p>
         </div>
 
-        <article class="card reveal form-card" id="leave-review">
-          <h3>Share a review</h3>
-          <p>
-            Your name, business, rating, and a brief testimonial. Honest feedback helps other owners decide—and helps us improve.
-          </p>
-          <form class="form-inner" action="https://formsubmit.co/dev.joseph.k@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New review — J-Kano website" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="" data-form-redirect="?thanks=review" />
-            <div class="form-grid">
-              <div class="field">
-                <label for="review-name">Your name</label>
-                <input id="review-name" name="name" type="text" required placeholder="First name or full name" autocomplete="name" />
+        <div class="reviews-actions reveal">
+          <button class="btn btn-secondary" type="button" data-open-modal="review-modal">Submit a Review</button>
+        </div>
+
+        <div class="modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title" aria-hidden="true">
+          <div class="modal-overlay" data-close-modal="review-modal" aria-hidden="true"></div>
+          <div class="modal-panel" role="document">
+            <div class="modal-head">
+              <div>
+                <h3 id="review-modal-title">Submit a Review</h3>
+                <p>Name, business (optional), star rating, and a short review.</p>
               </div>
-              <div class="field">
-                <label for="review-role">Business or role</label>
-                <input id="review-role" name="business_or_role" type="text" required placeholder="e.g. Deli owner, Farm stand" />
-              </div>
-              <div class="field">
-                <label for="review-rating">Rating</label>
-                <select id="review-rating" name="rating" required>
-                  <option value="" disabled selected>Choose stars</option>
-                  <option value="5">5 — Excellent</option>
-                  <option value="4">4 — Great</option>
-                  <option value="3">3 — Good</option>
-                  <option value="2">2 — Okay</option>
-                  <option value="1">1 — Needs work</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="review-email">Email (optional)</label>
-                <input id="review-email" name="_replyto" type="email" placeholder="For follow-up from our team" autocomplete="email" />
-              </div>
-              <div class="field full">
-                <label for="review-text">Your review</label>
-                <textarea id="review-text" name="review" required placeholder="What stood out? Would you recommend J-Kano?"></textarea>
-              </div>
-              <div class="field full">
-                <button class="btn btn-primary" type="submit">Submit review</button>
-              </div>
+              <button class="modal-close" type="button" data-close-modal="review-modal" aria-label="Close review form">Close</button>
             </div>
-          </form>
-        </article>
+
+            <form class="form-inner review-form" action="https://formsubmit.co/dev.joseph.k@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New review — J-Kano website" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="" data-form-redirect="?thanks=review" />
+              <div class="form-grid">
+                <div class="field">
+                  <label for="review-name">Name</label>
+                  <input id="review-name" name="name" type="text" required placeholder="Full name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="review-business">Business Name (optional)</label>
+                  <input id="review-business" name="business_name" type="text" placeholder="Business name" autocomplete="organization" />
+                </div>
+                <div class="field">
+                  <label for="review-rating">Star Rating</label>
+                  <select id="review-rating" name="rating" required>
+                    <option value="" disabled selected>Select rating</option>
+                    <option value="5">★★★★★ (5)</option>
+                    <option value="4">★★★★☆ (4)</option>
+                    <option value="3">★★★☆☆ (3)</option>
+                    <option value="2">★★☆☆☆ (2)</option>
+                    <option value="1">★☆☆☆☆ (1)</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="review-text">Review</label>
+                  <textarea id="review-text" name="review" required placeholder="What was your experience like?"></textarea>
+                </div>
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Submit review</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
 
         <div class="reviews-wrap reveal">
           <div class="reviews-track">
-            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked cheap. This made us look like a serious business overnight and people actually started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked outdated. This made us look like a serious business overnight and people started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The layout looked way more expensive than what I expected. Clean, dark, smooth, and way better than the random builder sites I was seeing.</p><strong>Tanya</strong><span>Beauty studio</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>They understood the whole point right away. I did not need something basic. I needed something that made my brand feel worth paying for.</p><strong>Chris</strong><span>Contractor</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking dumb questions and started coming in more serious.</p><strong>Jared</strong><span>Service business</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking basic questions and started reaching out more seriously.</p><strong>Jared</strong><span>Service business</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The site felt premium, not flashy. That balance is hard to get right and this nailed it.</p><strong>Lina</strong><span>Salon owner</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>It finally felt like our website matched the quality of what we sell. That matters more than people think.</p><strong>Omar</strong><span>Farm products</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Very sharp eye for presentation. Everything felt intentional. Nothing looked lazy or generic.</p><strong>Nick</strong><span>Auto detailing</span></article>
@@ -1841,10 +1985,10 @@
             <article class="review"><div class="stars">★★★★★</div><p>The request form brought in better leads because people could finally tell us what they actually wanted.</p><strong>Sam</strong><span>Custom fabrication</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Looked expensive. Moved smooth. Felt modern. Exactly what I wanted.</p><strong>Derek</strong><span>Fitness business</span></article>
 
-            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked cheap. This made us look like a serious business overnight and people actually started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>Our old website looked outdated. This made us look like a serious business overnight and people started mentioning the site on calls.</p><strong>Marco</strong><span>Local restaurant owner</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The layout looked way more expensive than what I expected. Clean, dark, smooth, and way better than the random builder sites I was seeing.</p><strong>Tanya</strong><span>Beauty studio</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>They understood the whole point right away. I did not need something basic. I needed something that made my brand feel worth paying for.</p><strong>Chris</strong><span>Contractor</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking dumb questions and started coming in more serious.</p><strong>Jared</strong><span>Service business</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The pricing section alone made a huge difference. People stopped asking basic questions and started reaching out more seriously.</p><strong>Jared</strong><span>Service business</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The site felt premium, not flashy. That balance is hard to get right and this nailed it.</p><strong>Lina</strong><span>Salon owner</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>It finally felt like our website matched the quality of what we sell. That matters more than people think.</p><strong>Omar</strong><span>Farm products</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Very sharp eye for presentation. Everything felt intentional. Nothing looked lazy or generic.</p><strong>Nick</strong><span>Auto detailing</span></article>
@@ -1854,23 +1998,23 @@
           </div>
 
           <div class="reviews-track reverse">
-            <article class="review"><div class="stars">★★★★★</div><p>I wanted dark and high-end, not cheap luxury cosplay. This actually felt premium.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>I wanted something modern and professional—not flashy. This felt clean, premium, and easy to trust.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The website helped us feel more legit right away and that changed how people responded to us.</p><strong>Brian</strong><span>Home services</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was clean as hell. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was extremely clean. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>I liked that the design felt rich without being overdone. It looked custom from the first second.</p><strong>Alyssa</strong><span>Boutique owner</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The flagship reference sold me—I could see exactly the level of polish I wanted for my own brand.</p><strong>Victor</strong><span>Farm operation</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Cheap-looking websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The demo sold me—I could see the level of polish I wanted for my own brand.</p><strong>Victor</strong><span>Farm operation</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Low-end websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Much better than the average freelancer look. It felt polished and serious.</p><strong>Amir</strong><span>Retail store</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The design made us feel more premium before a customer even contacted us. That was the whole goal.</p><strong>Jenna</strong><span>Event service</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Everything from the typography to the spacing looked expensive. That is rare.</p><strong>Leo</strong><span>Barbershop owner</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>It looked strong on mobile too which is where most of our customers see us first.</p><strong>Kayla</strong><span>Food brand</span></article>
 
-            <article class="review"><div class="stars">★★★★★</div><p>I wanted dark and high-end, not cheap luxury cosplay. This actually felt premium.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>I wanted something modern and professional—not flashy. This felt clean, premium, and easy to trust.</p><strong>Maya</strong><span>Cosmetics brand</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The website helped us feel more legit right away and that changed how people responded to us.</p><strong>Brian</strong><span>Home services</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was clean as hell. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The visual direction was extremely clean. Every section had purpose and the site had confidence.</p><strong>Zaid</strong><span>Private chef</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>I liked that the design felt rich without being overdone. It looked custom from the first second.</p><strong>Alyssa</strong><span>Boutique owner</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>The flagship reference sold me—I could see exactly the level of polish I wanted for my own brand.</p><strong>Victor</strong><span>Farm operation</span></article>
-            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Cheap-looking websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>The demo sold me—I could see the level of polish I wanted for my own brand.</p><strong>Victor</strong><span>Farm operation</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>We needed something that matched our pricing. Low-end websites make people question everything.</p><strong>Selena</strong><span>Med spa</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Much better than the average freelancer look. It felt polished and serious.</p><strong>Amir</strong><span>Retail store</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>The design made us feel more premium before a customer even contacted us. That was the whole goal.</p><strong>Jenna</strong><span>Event service</span></article>
             <article class="review"><div class="stars">★★★★★</div><p>Everything from the typography to the spacing looked expensive. That is rare.</p><strong>Leo</strong><span>Barbershop owner</span></article>
@@ -1909,7 +2053,7 @@
               Marketing sites, landing systems, service-area pages, menus, product storytelling, and—when you’re ready—custom admin surfaces so your team can publish without bottlenecks.
             </p>
             <p>
-              We’re selective about fit. If you want the cheapest possible page, we’re probably not it. If you want something you’d put next to a national brand and feel proud, that’s the standard we hold.
+              We’re selective about fit. If you want the lowest-cost possible page, we’re probably not it. If you want something you’d put next to a national brand and feel proud, that’s the standard we hold.
             </p>
           </article>
         </div>
@@ -1921,7 +2065,7 @@
         <div class="contact-grid contact-grid--request">
           <aside class="contact-vcard reveal">
             <p class="co">J-Kano</p>
-            <h3>Studio team</h3>
+            <h3>Joseph Kano</h3>
             <p class="role">Web design &amp; development · United States</p>
             <div class="direct">
               <div>
@@ -1934,7 +2078,7 @@
               </div>
             </div>
             <p class="blurb">
-              Direct line to the team that designs and builds your project—no offshore boiler room, no bait-and-switch. We partner with businesses that expect Apple-quiet polish and Main-Street honesty.
+              Direct line to the person designing and building your project—no handoffs, no runaround. Clear communication, clean execution, and a site built for real customers.
             </p>
           </aside>
 
@@ -2046,7 +2190,7 @@
       <div class="footer-brand">
         <strong>J-Kano</strong>
         <div class="footer-contact">
-          Web studio · United States<br />
+          Joseph Kano · United States<br />
           <a href="tel:+16175643177">617-564-3177</a>
           ·
           <a href="mailto:dev.joseph.k@gmail.com">dev.joseph.k@gmail.com</a>
@@ -2061,6 +2205,7 @@
         <a href="#reviews">Reviews</a>
         <a href="#about">About</a>
         <a href="#contact">Request</a>
+        <a class="footer-admin" href="/admin">Admin</a>
       </div>
     </div>
   </footer>
@@ -2108,6 +2253,41 @@
           u.searchParams.delete('thanks');
           history.replaceState({}, '', u.pathname + (u.search || '') + (u.hash || ''));
         }
+      }
+
+      const openBtn = document.querySelector('[data-open-modal="review-modal"]');
+      const modal = document.getElementById('review-modal');
+      if(openBtn && modal){
+        const overlay = modal.querySelector('.modal-overlay');
+        const closeBtns = modal.querySelectorAll('[data-close-modal="review-modal"]');
+
+        const isShown = ()=>modal.classList.contains('show');
+
+        const setOpen = (isOpen)=>{
+          if(isOpen){
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden','false');
+            document.body.style.overflow = 'hidden';
+            const first = modal.querySelector('input,select,textarea,button');
+            if(first) first.focus();
+          }else{
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden','true');
+            document.body.style.overflow = '';
+            openBtn.focus();
+          }
+        };
+
+        openBtn.addEventListener('click', ()=>setOpen(true));
+        closeBtns.forEach((btn)=>btn.addEventListener('click', ()=>setOpen(false)));
+        if(overlay) overlay.addEventListener('click', ()=>setOpen(false));
+
+        document.addEventListener('keydown', (e)=>{
+          if(e.key === 'Escape' && isShown()){
+            e.preventDefault();
+            setOpen(false);
+          }
+        });
       }
     })();
   </script>
